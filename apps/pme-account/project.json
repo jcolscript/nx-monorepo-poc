@@ -1,0 +1,97 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/pme-account/src",
+  "prefix": "gringotts-bank",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/pme-account",
+        "index": "apps/pme-account/src/index.html",
+        "main": "apps/pme-account/src/main.ts",
+        "polyfills": "apps/pme-account/src/polyfills.ts",
+        "tsConfig": "apps/pme-account/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/pme-account/src/favicon.ico",
+          "apps/pme-account/src/assets"
+        ],
+        "styles": ["apps/pme-account/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/pme-account/src/environments/environment.ts",
+              "with": "apps/pme-account/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "pme-account:build:production"
+        },
+        "development": {
+          "browserTarget": "pme-account:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "pme-account:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/pme-account/**/*.ts",
+          "apps/pme-account/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/pme-account/src/test.ts",
+        "tsConfig": "apps/pme-account/tsconfig.spec.json",
+        "karmaConfig": "apps/pme-account/karma.conf.js",
+        "polyfills": "apps/pme-account/src/polyfills.ts",
+        "styles": [],
+        "scripts": [],
+        "assets": []
+      }
+    }
+  },
+  "tags": []
+}

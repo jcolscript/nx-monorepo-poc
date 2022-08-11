@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "account": "apps/account",
+    "account-e2e": "apps/account-e2e",
+    "feature-a": "libs/feature-a",
+    "feature-b": "libs/feature-b",
+    "pme-account": "apps/pme-account",
+    "pme-account-e2e": "apps/pme-account-e2e",
+    "ui": "libs/ui"
+  }
+}
